@@ -25,6 +25,10 @@ type Game struct {
 	Players, Winners      []Player
 }
 
+func init() {
+	rand.Seed(time.Now().UnixNano())
+}
+
 // rollDice lets the player to roll its dice.
 func (p *Player) rollDice() {
 	for i := 0; i < len(p.Dice); i++ {
