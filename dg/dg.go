@@ -140,8 +140,8 @@ func (g *Game) announceTheWinners() {
 	}
 }
 
-// play starts the game.
-func (g *Game) play() {
+// Play starts the game.
+func (g *Game) Play() {
 	fmt.Println("====================")
 	fmt.Printf("Pemain = %d, Dadu = %d\n", g.Setting.TotalPlayers, g.Setting.TotalDice)
 	fmt.Println("====================")
