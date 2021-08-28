@@ -180,8 +180,8 @@ func (g *Game) play() {
 	}
 }
 
-// createPlayers creates players.
-func createPlayers(totalPlayers, totalDice int) ([]Player, error) {
+// CreatePlayers creates players.
+func CreatePlayers(totalPlayers, totalDice int) ([]Player, error) {
 	if totalPlayers < 0 {
 		msg := "totalPlayers cannot be negative"
 		return nil, errors.New(msg)
@@ -196,8 +196,8 @@ func createPlayers(totalPlayers, totalDice int) ([]Player, error) {
 	return players, nil
 }
 
-// createGame creates a dice game.
-func createGame(ps []Player, td time.Duration) (Game, error) {
+// CreateGame creates a dice game.
+func CreateGame(ps []Player, td time.Duration) (Game, error) {
 	if ps == nil {
 		msg := "players cannot be nil"
 		return Game{}, errors.New(msg)
