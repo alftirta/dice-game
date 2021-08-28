@@ -88,6 +88,7 @@ func (g *Game) evaluate() {
 	}
 }
 
+// convertDiceToString convert a dice slice into string.
 func (g *Game) convertDiceToString(i int) (result string) {
 	for j := 0; j < len(g.Players[i].Dice); j++ {
 		if j == len(g.Players[i].Dice)-1 {
@@ -102,6 +103,7 @@ func (g *Game) convertDiceToString(i int) (result string) {
 	return
 }
 
+// getWinners get game winners based on players' score.
 func (g *Game) getWinners() {
 	for _, p := range g.Players {
 		if p.Score > g.Winners[0].Score {
@@ -112,6 +114,7 @@ func (g *Game) getWinners() {
 	}
 }
 
+// announceTheWinners announce the winners on the terminal.
 func (g *Game) announceTheWinners() {
 	if len(g.Winners) == len(g.Players) && len(g.Winners) > 1 {
 		fmt.Printf("Seri! Setiap pemain mendapatkan %d poin.\n", g.Winners[0].Score)
@@ -137,6 +140,7 @@ func (g *Game) announceTheWinners() {
 	}
 }
 
+// play starts the game.
 func (g *Game) play() {
 	fmt.Println("====================")
 	fmt.Printf("Pemain = %d, Dadu = %d\n", g.Setting.TotalPlayers, g.Setting.TotalDice)
@@ -176,6 +180,7 @@ func (g *Game) play() {
 	}
 }
 
+// createPlayers creates players.
 func createPlayers(totalPlayers, totalDice int) ([]Player, error) {
 	if totalPlayers < 0 {
 		msg := "totalPlayers cannot be negative"
@@ -191,6 +196,7 @@ func createPlayers(totalPlayers, totalDice int) ([]Player, error) {
 	return players, nil
 }
 
+// createGame creates a dice game.
 func createGame(ps []Player, td time.Duration) (Game, error) {
 	if ps == nil {
 		msg := "players cannot be nil"
