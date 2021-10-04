@@ -209,7 +209,7 @@ func CreateGame(ps []Player, td time.Duration) (Game, error) {
 		Setting: Setting{
 			TotalPlayers: len(ps),
 			TotalDice: len(ps[0].Dice),
-			TimeDelay: td * time.Second,
+			TimeDelay: td * time.Millisecond,
 		},
 		TotalRemainingPlayers: len(ps),
 		Players: ps,
